@@ -1,3 +1,6 @@
+:root {
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -7,6 +10,7 @@
 body {
   height: 100vh;
   display: flex;
+  background: linear-gradient(-45deg, #b7ffbf, #9ae7ff);
 }
 
 .container {
@@ -17,7 +21,39 @@ body {
 }
 
 #guess-container {
+  border-radius: 10px;
+  background: #fff;
+  border: 2px solid #000;
   height: 100%;
+  width: 100%;
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr), 0.5fr;
+  justify-content: center;
+  align-items: center;
+}
+
+#country-hints {
+  font-size: 7rem;
+}
+
+#country-answer {
+  font-size: 2rem;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 5px;
+  width: 80%;
+}
+
+#country-answer:focus {
+  outline: none;
+}
+
+.btn {
+  width: 60%;
+  margin: auto;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
 }
