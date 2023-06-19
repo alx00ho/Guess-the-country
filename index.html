@@ -9,13 +9,26 @@
   </head>
   <body>
     <div class="container">
+      <h1 id="country-prompt" class="prompt">Guess the Country</h1>
+      <!-- Initial Page -->
+      <div id="initial-page" class="show">
+        <button id="play-btn" class="btn">Play!</button>
+      </div>
+      <!-- Game Page -->
       <section id="guess-container">
-        <h1 id="country-prompt" class="prompt">Guess the Country</h1>
-        <div id="country-hints"></div>
-        <div id="answer" class="input">
-          <input type="text" id="country-answer" class="answer" />
+        <div id="country-hints" class="guess-container-item hide"></div>
+        <div id="country-answer" class="input guess-container-item hide">
+          <input type="text" id="answer" class="answer" />
         </div>
-        <button id="check-answer" class="btn">Check Answer</button>
+        <button id="check-answer" class="btn guess-container-item hide">
+          Check Answer
+        </button>
+        <button id="next-country-btn" class="btn guess-container-item hide">
+          Next Country
+        </button>
+        <button id="idk-btn" class="btn guess-container-item hide">
+          I Don't Know
+        </button>
       </section>
     </div>
 
