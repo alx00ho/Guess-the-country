@@ -1,5 +1,3 @@
-//China = 49;
-
 const geoURL = "https://restcountries.com/v3.1/all?fields=name,flags";
 const countryHints = document.getElementById("country-hints");
 const answer = document.getElementById("answer");
@@ -86,7 +84,11 @@ const handleCountryName = async function (data) {
     url: countryURL,
     method: "GET",
   })
-    .then((response) => handleCountryData(response.data[0]))
+    .then((response) =>
+      countryName === "China"
+        ? handleCountryData(response.data[2])
+        : handleCountryData(response.data[0])
+    )
     .catch((err) => console.log(err));
 };
 
