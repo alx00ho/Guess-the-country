@@ -74,9 +74,9 @@ async function countryInfo() {
 }
 
 const handleCountryName = async function (data) {
-  countryName = data[currIndex].name.common;
+  countryName = data[randIndexArr[currIndex]].name.common;
 
-  searched.push(countriesData[currIndex]);
+  searched.push(countriesData[randIndexArr[currIndex]]);
 
   const countryURL = `https://restcountries.com/v3.1/name/${countryName}?fields=capital,continents,flag,currencies,landlocked,population`;
 
@@ -120,8 +120,8 @@ function shuffle(arr) {
     j = 0,
     temp;
 
-  while (i--) {
-    j = Math.floor(Math.random() * (i + 1));
+  while (i) {
+    j = Math.floor(Math.random() * i--);
 
     temp = arr[i];
     arr[i] = arr[j];
@@ -132,3 +132,4 @@ function shuffle(arr) {
 }
 
 countryInfo();
+console.log(Math.random());
