@@ -33,6 +33,8 @@ function handlePlayBtn() {
 }
 
 async function handleNextCountryBtn() {
+  countryHints.textContent = "";
+
   answer.classList.add("show");
   answerBtn.classList.add("show");
 
