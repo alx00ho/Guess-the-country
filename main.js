@@ -30,6 +30,7 @@ function handlePlayBtn() {
   guessContainerItems.forEach((item) => item.classList.add("show"));
 
   handleCountryName(countriesData);
+  currIndex++;
 }
 
 async function handleNextCountryBtn() {
