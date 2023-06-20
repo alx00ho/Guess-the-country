@@ -33,7 +33,7 @@ function handlePlayBtn() {
 }
 
 async function handleNextCountryBtn() {
-  countryHints.textContent = "";
+  countryHints.textContent = " ";
 
   answer.classList.add("show");
   answerBtn.classList.add("show");
@@ -113,6 +113,11 @@ function handleAnswerBtn() {
     countryHints.classList.add("correct");
     countryHints.classList.add("text-xl");
     countryHints.textContent = "Correct!";
+
+    answer.classList.remove("show");
+    answer.classList.add("hide");
+    answerBtn.classList.remove("show");
+    answerBtn.classList.add("hide");
   }
   answer.value = "";
 }
