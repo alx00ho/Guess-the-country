@@ -78,6 +78,7 @@ body {
   width: 50%;
   padding: 3rem;
   font-size: 3rem;
+  text-align: center;
 }
 
 /* Utilities */
@@ -110,6 +111,13 @@ body {
 
 /* Media */
 @media (max-width: 440px) {
+  #play-btn {
+    width: 140px;
+    font-size: 2rem;
+    padding: 1rem;
+    margin-top: 50%;
+  }
+
   #guess-container {
     grid-template-rows: repeat(5, 1fr);
     grid-template-columns: 1fr;
@@ -128,6 +136,10 @@ body {
 
   #check-answer {
     grid-row: 3 / 4;
+  }
+
+  #next-country-btn {
+    grid-row: 4 / 5;
   }
 
   #idk-btn {
