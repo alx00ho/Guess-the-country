@@ -40,6 +40,7 @@ async function handleNextCountryBtn() {
   currIndex++;
 
   if (currIndex >= numCountries) {
+    countryHints.classList.add("text-xl");
     countryHints.textContent = "Well Done, that was all of the countries!";
   }
 
@@ -101,8 +102,6 @@ const handleCountryData = function (data) {
 };
 
 function handleAnswerBtn() {
-  console.log(countryName);
-
   if (
     countryName.localeCompare(answer.value, undefined, {
       sensitivity: "accent",
@@ -138,4 +137,3 @@ function shuffle(arr) {
 }
 
 countryInfo();
-console.log(Math.random());
