@@ -45,10 +45,14 @@ async function handleNextCountryBtn() {
 
   countryHints.classList.remove("idk");
   countryHints.classList.remove("correct");
+  countryHints.classList.remove("text-xl");
+  countryHints.classList.add("flag");
 }
 
 function handleIdkBtn() {
+  countryHints.classList.add("text-xl");
   countryHints.classList.add("idk");
+  countryHints.classList.remove("flag");
 
   answer.classList.remove("show");
   answer.classList.add("hide");
@@ -104,7 +108,9 @@ function handleAnswerBtn() {
       sensitivity: "accent",
     }) === 0
   ) {
+    countryHints.classList.remove("flag");
     countryHints.classList.add("correct");
+    countryHints.classList.add("text-xl");
     countryHints.textContent = "Correct!";
   }
   answer.value = "";
