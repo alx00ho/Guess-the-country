@@ -1,6 +1,7 @@
 const geoURL = "https://restcountries.com/v3.1/all?fields=name,flags";
 const countryHints = document.getElementById("country-hints");
 const countryFlag = document.getElementById("country-flag");
+const countryText = document.getElementById("country-text");
 const answer = document.getElementById("answer");
 const answerBtn = document.getElementById("check-answer");
 const playBtn = document.getElementById("play-btn");
@@ -35,6 +36,8 @@ function handlePlayBtn() {
 }
 
 async function handleNextCountryBtn() {
+  countryText.textContent = "";
+
   answer.classList.add("show");
   answerBtn.classList.add("show");
 
@@ -42,11 +45,12 @@ async function handleNextCountryBtn() {
   currIndex++;
 
   if (currIndex >= numCountries) {
-    countryHints.classList.add("text-xl");
-    countryHints.textContent = "Well Done, that was all of the countries!";
+    countryText.classList.add("text-xl");
+    countryText.textContent = "Well Done, that was all of the countries!";
   }
 
   countryHints.classList.remove("idk");
+  countryHints.classList.remove("incorrect");
   countryHints.classList.remove("correct");
   countryHints.classList.remove("text-xl");
   countryHints.classList.add("flag");
@@ -62,7 +66,7 @@ function handleIdkBtn() {
   answerBtn.classList.remove("show");
   answerBtn.classList.add("hide");
 
-  countryHints.textContent = countryName;
+  countryText.textContent = countryName;
 }
 
 async function countryInfo() {
@@ -118,7 +122,17 @@ function handleAnswerBtn() {
     countryHints.classList.remove("flag");
     countryHints.classList.add("correct");
     countryHints.classList.add("text-xl");
-    countryHints.textContent = "Correct!";
+    countryText.textContent = "Correct!";
+
+    answer.classList.remove("show");
+    answer.classList.add("hide");
+    answerBtn.classList.remove("show");
+    answerBtn.classList.add("hide");
+  } else {
+    countryHints.classList.remove("flag");
+    countryHints.classList.add("incorrect");
+    countryHints.classList.add("text-xl");
+    countryText.textContent = "Incorrect!";
 
     answer.classList.remove("show");
     answer.classList.add("hide");
