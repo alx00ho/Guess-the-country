@@ -1,5 +1,6 @@
 const geoURL = "https://restcountries.com/v3.1/all?fields=name,flags";
 const countryHints = document.getElementById("country-hints");
+const countryFlag = document.getElementById("country-flag");
 const answer = document.getElementById("answer");
 const answerBtn = document.getElementById("check-answer");
 const playBtn = document.getElementById("play-btn");
@@ -34,8 +35,6 @@ function handlePlayBtn() {
 }
 
 async function handleNextCountryBtn() {
-  countryHints.textContent = " ";
-
   answer.classList.add("show");
   answerBtn.classList.add("show");
 
@@ -86,7 +85,7 @@ const handleCountryName = async function (data) {
 
   searched.push(countriesData[randIndexArr[currIndex]]);
 
-  const countryURL = `https://restcountries.com/v3.1/name/${countryName}?fields=capital,continents,flag,currencies,landlocked,population`;
+  const countryURL = `https://restcountries.com/v3.1/name/${countryName}?fields=capital,cca2,continents,flag,currencies,landlocked,population`;
 
   const getCountryData = await axios({
     url: countryURL,
@@ -101,7 +100,13 @@ const handleCountryName = async function (data) {
 };
 
 const handleCountryData = function (data) {
-  countryHints.textContent = data.flag;
+  countryFlag.src = `files/flags/${data.cca2.toLowerCase()}.webp`;
+  countryFlag.alt = `${data.countryName}`;
+
+  countryHints.classList.remove("show");
+  countryHints.classList.add("hide");
+  countryHints.classList.remove("hide");
+  countryHints.classList.add("show");
 };
 
 function handleAnswerBtn() {
