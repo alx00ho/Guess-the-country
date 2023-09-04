@@ -122,7 +122,9 @@ function handleAnswerBtn() {
     countryHints.classList.remove("flag");
     countryHints.classList.add("correct");
     countryHints.classList.add("text-xl");
-    countryText.textContent = "Correct!";
+    console.log(countryName);
+    countryText.textContent =
+      "Correct!\n The correct country is: " + countryName;
 
     answer.classList.remove("show");
     answer.classList.add("hide");
@@ -132,7 +134,8 @@ function handleAnswerBtn() {
     countryHints.classList.remove("flag");
     countryHints.classList.add("incorrect");
     countryHints.classList.add("text-xl");
-    countryText.textContent = "Incorrect!";
+    countryText.textContent =
+      "Incorrect!\n The correct country is: " + countryName;
 
     answer.classList.remove("show");
     answer.classList.add("hide");
