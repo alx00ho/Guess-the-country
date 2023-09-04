@@ -46,6 +46,10 @@ body {
   grid-row: 1 / 3;
 }
 
+#country-flag {
+  width: 50%;
+}
+
 .correct {
   color: rgb(0, 192, 0);
 }
